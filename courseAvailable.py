@@ -4,13 +4,15 @@ import smtplib, ssl
 
 port = 465  # For SSL
 password = "password"
+print("This version works for Summer 2021 Classes")
+crn = raw_input("Please enter the course's CRN#")
+
 message = """\
 Subject: COURSE SEAT UPDATE
 
-CEN 4020, CRN 57429 SEAT AVAILABLE!"""
+SEAT AVAILABLE!"""
 
-print("This version works for Summer 2021 Classes")
-crn = raw_input("Please enter the course's CRN#")
+
 URL = 'https://usfonline.admin.usf.edu/pls/prod/bwckschd.p_disp_detail_sched?term_in=202105&crn_in='+ crn
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
