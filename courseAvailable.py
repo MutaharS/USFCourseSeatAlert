@@ -6,6 +6,7 @@ port = 465  # For SSL
 password = "password"
 print("This version works for Summer 2021 Classes")
 crn = raw_input("Please enter the course's CRN#")
+my_email = raw_input("Please enter your email: ")
 
 message = """\
 Subject: COURSE SEAT UPDATE
@@ -30,7 +31,7 @@ while(flag == 0):
         context = ssl.create_default_context()
         server = smtplib.SMTP_SSL("smtp.gmail.com", port, context=context)
         server.login("courseSeatAvailable@gmail.com", password)
-        server.sendmail("courseSeatAvailable@gmail.com", "mutahar@usf.edu", message)
+        server.sendmail("courseSeatAvailable@gmail.com", my_email, message)
         flag = 1
         break
     time.sleep(1)
